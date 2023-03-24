@@ -13,7 +13,7 @@ class CoinBot:
         },
     }
 
-#constante par aa clase, tomando o nome do canal como parâmetro e setado como variável da instância
+#constante para a classe, tomando o nome do canal como parâmetro e setado como variável da instância
 def __init__(self, channel):
     self.channel = channel
 
@@ -28,3 +28,14 @@ def _flip_coin(self):
     texto = f"O resultado é {results}"
 
     return {"type": "section", "text": {"type": "mrkdwn", "text": texto}},
+
+# cria e retorna a mensagem
+def cria_mensagem(self):
+    return {
+        "channel": self.channel,
+        "blocks": [
+            self.COIN_BLOCK,
+            *self._flip_coin(),
+        ],
+    }
+
